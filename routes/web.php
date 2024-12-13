@@ -30,5 +30,8 @@ Route::get('/users', [PersonController::class, 'index'])->name('users.index');
 Route::get('/new-gift', [GiftController::class, 'create'])->name('gifts.create');
 Route::get('/gifts', [GiftController::class, 'index'])->name('gifts.index');
 
+Route::post('/gift_types', [GiftTypeController::class, 'store'])->name('gift_types.store');
+Route::post('/users', [PersonController::class, 'store'])->name('users.store');
+Route::post('/gifts', [GiftController::class, 'store'])->name('gifts.store');
 
 require __DIR__.'/auth.php';

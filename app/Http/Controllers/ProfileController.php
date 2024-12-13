@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use app\Models\People;
 
 class ProfileController extends Controller
 {
@@ -56,5 +57,23 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+
+        
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'person_name' => 'required|string|max:255',
+            'email' => 'required|email|unique:people,email',
+        ]);
+
+        People::create([
+            'person_name' => $request->person_name,
+            'email' => $request->email,
+        ]);
+
+        return redirect()->route('users.index')->with('success', 'Felhasználó sikeresen hozzáadva!');
+
     }
 }

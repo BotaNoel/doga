@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class GiftType extends Model
 {
-    protected $fillable = ['type_name'];
+    protected $fillable = ['type'];
 
     public function gifts()
     {

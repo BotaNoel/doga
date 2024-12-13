@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GiftTypeController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\PersonController;
 use App\Http\Controllers\GiftController;
 
 Route::get('/', function () {
@@ -24,8 +24,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/new-gift-type', [GiftTypeController::class, 'create'])->name('gift_types.create');
 Route::get('/gift_types', [GiftTypeController::class, 'index'])->name('gift_types.index');
 
-Route::get('/new-user', [UsersController::class, 'create'])->name('users.create');
-Route::get('/users', [UsersController::class, 'index'])->name('users.index');
+Route::get('/new-user', [PersonController::class, 'create'])->name('users.create');
+Route::get('/users', [PersonController::class, 'index'])->name('users.index');
 
 Route::get('/new-gift', [GiftController::class, 'create'])->name('gifts.create');
 Route::get('/gifts', [GiftController::class, 'index'])->name('gifts.index');
